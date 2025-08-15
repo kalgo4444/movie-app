@@ -1,11 +1,11 @@
-import { useState, type FC } from "react";
+import { type FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import type { IMovie } from "../../../features/movies/types";
 import SwiperSkeleton from "./skeleton/SwperSkeleton";
 import { Play } from "lucide-react";
 
-import "swiper/css";
+// import "swiper/css";
 // import "swiper/css/free-mode";
 // import "swiper/css/navigation";
 // import "swiper/css/thumbs";
@@ -15,7 +15,7 @@ interface Props {
 }
 const MainSwiper: FC<Props> = ({ data }) => {
   const swiperData: IMovie[] | undefined = data?.slice(0, 5);
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  // const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
     <>
       {data === undefined ? (
@@ -25,7 +25,7 @@ const MainSwiper: FC<Props> = ({ data }) => {
           <Swiper
             spaceBetween={10}
             navigation={false}
-            thumbs={{ swiper: thumbsSwiper }}
+            // thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Navigation, Thumbs]}
             className="mySwiper2"
           >
@@ -58,7 +58,7 @@ const MainSwiper: FC<Props> = ({ data }) => {
             ))}
           </Swiper>
           <Swiper
-            onSwiper={setThumbsSwiper}
+            // onSwiper={setThumbsSwiper}
             spaceBetween={10}
             slidesPerView={5}
             freeMode={true}

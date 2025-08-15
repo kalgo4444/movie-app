@@ -26,5 +26,5 @@ export const useMovies = () => {
       queryFn: () => API.get(`/movie/${id}`),
       select: (data) => data.data,
     });
-  return { getMovies, getMoviesByUrl };
+  return { getMovies, getMovieById, getMoviesByUrl };
 };

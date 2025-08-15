@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mainColor: #c61f1f;
+  --color-mainText: #ffffff;
+  --color-secondText: #4d4d4d;
+
+  --radius-mainRadius: 12px;
+  
+  --color-headerLinkTopBorder: #333;
+  --color-linkBgHover: oklch(20.5% 0 0);
+  --color-linkBgActive: oklch(14.5% 0 0);
+
+  --color-footerBg: #111111;
+  --color-footerLinks: #A1A1A1;
+
+}
+
+@layer base {
+  body {
+    @apply bg-black text-mainText;
+  }
+}
+
+@layer components {
+  .container {
+    max-width: 1332px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .btn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+  .btnHover:hover {
+    opacity: 0.8;
+  }
+  .btnActive:active {
+    background-color: var(--color-mainColor);
+  }
+  .linkBgHover:hover {
+    background-color: var(--color-linkBgHover);
+  }
+  .linkBgActive:active {
+    background-color: var(--color-linkBgActive);
+  }
+  .flexCenter {
+    display: flex;
+    align-items: center;
+  }
+  .flexJustifyCenter{
+    display: flex;
+    justify-content: center;
+  }
+  .flexItemCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .flexJustify{
+    display: flex;
+    justify-content: space-between;
+  }
+  .flexCenterBetween {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .flexColCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .flexColStart {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+
+.swiper-button-prev::after, .swiper-button-next::after{
+    color: var(--color-mainColor);
+    background-color: #000;
+    padding: 20px;
+    border-radius: 50%;
+}
+.swiper-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

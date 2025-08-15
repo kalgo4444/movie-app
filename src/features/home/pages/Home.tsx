@@ -4,10 +4,8 @@ import { useMovies } from "../../movies/service/useMovies";
 import SwiperCarts from "../../../shared/components/swiperCarts/SwiperCarts";
 
 const Home = () => {
-  const { getMovies, getMoviesByUrl } = useMovies();
+  const { getMovies } = useMovies();
   const { data } = getMovies();
-  getMoviesByUrl("/movie/now_playing");
-  console.log();
   return (
     <section>
       <MainSwiper data={data?.results} />

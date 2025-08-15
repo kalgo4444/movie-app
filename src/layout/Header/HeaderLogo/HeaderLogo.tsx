@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
-const logo = "../../../shared/assets/images/logo.png";
+import logo from "../../../shared/assets/images/logo.svg";
 
 const HeaderLogo = () => {
   return (

@@ -1,85 +1,92 @@
-import { type FC } from "react";
+import { useState, type FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { Navigation, Thumbs, Autoplay } from "swiper/modules";
 import type { IMovie } from "../../../features/movies/types";
-import SwiperSkeleton from "./skeleton/SwperSkeleton";
 import { Play } from "lucide-react";
-
-// import "swiper/css";
-// import "swiper/css/free-mode";
-// import "swiper/css/navigation";
-// import "swiper/css/thumbs";
+import { useNavigate } from "react-router-dom";
+import SwiperSkeleton from "./skeleton/SwperSkeleton";
 
 interface Props {
   data: IMovie[] | undefined;
 }
 const MainSwiper: FC<Props> = ({ data }) => {
-  const swiperData: IMovie[] | undefined = data?.slice(0, 5);
-  // const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const nav = useNavigate();
+
   return (
     <>
       {data === undefined ? (
         <SwiperSkeleton />
       ) : (
-        <>
+        <div className="w-full max-w-[1360px] mx-auto mb-[50px]">
           <Swiper
-            spaceBetween={10}
-            navigation={false}
-            // thumbs={{ swiper: thumbsSwiper }}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper2"
+            modules={[Navigation, Thumbs, Autoplay]}
+            navigation={true}
+            thumbs={{ swiper: thumbsSwiper }}
+            loop={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            onSwiper={setThumbsSwiper}
+            slidesPerView={1}
+            spaceBetween={8}
+            watchSlidesProgress
+            className="rounded-xl overflow-hidden"
           >
-            {swiperData?.map((item: IMovie) => (
-              <SwiperSlide key={item.id}>
-                <div className="max-w-[1360px] mx-auto rounded-mainRadius overflow-hidden relative">
-                  <img
-                    src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
-                    alt=""
-                  />
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 max-w-[380px] w-full flex flex-col items-center my-6">
-                    <h2 className="text-3xl font-medium mb-4">
-                      {item.original_title}
+            {data?.map((slide: IMovie) => (
+              <SwiperSlide key={slide.id}>
+                <div
+                  className="relative w-full h-[550px] md:h-[640px] bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url("https://image.tmdb.org/t/p/original${slide.backdrop_path}")`,
+                  }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="absolute bottom-10 left-[50%] -translate-x-1/2 text-white max-w-[200px] md:max-w-[380px] w-full">
+                    <h2 className="font-semibold text-lg md:text-3xl leading-[125%] tracking-[0.01em] text-center mb-4">
+                      {slide.title}
                     </h2>
-                    <div className="flex items-center gap-2 justify-center mb-4">
-                      <span>{item.release_date.split("-")[0].toString()}</span>•
-                      <span>{item.vote_count}</span>•
-                      <span>{item.original_language.toLocaleUpperCase()}</span>•
-                      <span>{item.adult == true ? "20+" : "6+"}</span>
-                    </div>
-                    <button className="w-full h-13 bg-white text-mainColor text-xl font-medium rounded-mainRadius flex items-center justify-center gap-2 btn">
-                      <span>
-                        <Play />
-                      </span>
-                      <span>Play</span>
+                    <p className="text-sm font-semibold leading-[125%] tracking-[0.01em] text-center mb-4">
+                      {slide.release_date.split("-")[0]} •{" "}
+                      {slide.original_language.toUpperCase()} •{" "}
+                      {slide.vote_average}
+                    </p>
+                    <button
+                      onClick={() => nav(`/movie/${slide.id}`)}
+                      className="mt-4 mx-auto flexItemCenter w-full h-13.5 gap-2 text-center text-mainColor bg-white btnHover duration-200 rounded-mainRadius btn"
+                    >
+                      <Play />
+                      Смотреть
                     </button>
                   </div>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
+
           <Swiper
-            // onSwiper={setThumbsSwiper}
-            spaceBetween={10}
-            slidesPerView={5}
-            freeMode={true}
-            watchSlidesProgress={true}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper mt-1"
+            onSwiper={setThumbsSwiper}
+            modules={[Navigation, Thumbs]}
+            slidesPerView={7}
+            spaceBetween={8}
+            watchSlidesProgress
+            className="mt-4"
           >
-            {swiperData?.map((item: IMovie) => (
-              <SwiperSlide
-                className="max-w-27 h-16 w-full cursor-pointer rounded-mainRadius overflow-hidden"
-                key={item.id}
-              >
-                <img
-                  className="w-full h-full bg-cover"
-                  src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
-                  alt=""
-                />
-              </SwiperSlide>
+            {data?.map((slide: IMovie) => (
+              <div className="max-w-[500px]">
+                <SwiperSlide key={slide.id}>
+                  <div
+                    className="w-full h-[55px] bg-cover bg-center rounded-md border border-transparent hover:border-red-500 cursor-pointer transition-all duration-300"
+                    style={{
+                      backgroundImage: `url("https://image.tmdb.org/t/p/original${slide.backdrop_path}")`,
+                    }}
+                  />
+                </SwiperSlide>
+              </div>
             ))}
           </Swiper>
-        </>
+        </div>
       )}
     </>
   );

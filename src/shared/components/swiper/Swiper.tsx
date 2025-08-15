@@ -54,7 +54,7 @@ const MainSwiper: FC<Props> = ({ data }) => {
                     </p>
                     <button
                       onClick={() => nav(`/movie/${slide.id}`)}
-                      className="mt-4 mx-auto flexItemCenter w-full h-13.5 gap-2 text-center text-mainColor bg-white btnHover duration-200 rounded-mainRadius btn"
+                      className="mt-4 mx-auto flexItemCenter font-semibold w-full h-13.5 gap-2 text-center text-mainColor bg-white btnHover duration-200 rounded-mainRadius btn"
                     >
                       <Play />
                       Смотреть
@@ -71,7 +71,7 @@ const MainSwiper: FC<Props> = ({ data }) => {
             slidesPerView={7}
             spaceBetween={8}
             watchSlidesProgress
-            className="mt-4"
+            className="mt-2"
           >
             {data?.map((slide: IMovie) => (
               <div className="max-w-[500px]">

@@ -1,5 +1,6 @@
 import { lazy, memo } from "react";
 import { useRoutes } from "react-router-dom";
+import NotFound from "../layout/NotFound/NotFound";
 
 const MainLayout = lazy(() => import("../layout/MainLayout"));
 const Home = lazy(() => import("../features/home/pages/Home"));
@@ -30,6 +31,10 @@ const AppRoutes = () => {
           element: <Bookmark />,
         },
       ],
+    },
+    {
+      path: "*",
+      element: <NotFound />,
     },
   ]);
 };

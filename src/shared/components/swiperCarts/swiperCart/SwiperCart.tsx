@@ -12,18 +12,18 @@ const SwiperCart: FC<Props> = ({ data }) => {
       {newData?.map((item: IMovie) => (
         <div key={item.id}>
           <div
-            onClick={() => nav(`/movie/:${item.id}`)}
+            onClick={() => nav(`/movie/${item.id}`)}
             className="overflow-hidden rounded-mainRadius cursor-pointer"
           >
             <img
               src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
               alt={item.original_title}
-              className="hover:scale-105 duration-200"
+              className="hover:scale-102 duration-200"
             />
           </div>
           <div className="pl-1 pr-5 mt-3">
             <h3
-              onClick={() => nav(`/movie/:${item.id}`)}
+              onClick={() => nav(`/movie/${item.id}`)}
               className="text-base md:text-2xl line-clamp-1 cursor-pointer"
               title={item.original_title}
             >

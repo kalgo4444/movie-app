@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { API } from "../../../shared/api";
-
 interface IParams {
   page?: number;
 }
@@ -9,22 +8,18 @@ export const useMovies = () => {
   const getMovies = (params?: IParams) =>
     useQuery({
       queryKey: ["movie-key", params],
-      queryFn: () => API.get("/discover/movie"),
+      queryFn: () =>
+        API.get("/discover/movie", {
+          params,
+        }),
       select: (data) => data.data,
     });
 
-  const getMoviesByUrl = (url: string, params?: IParams) =>
+  const getMovieById = (id?: string) =>
     useQuery({
-      queryKey: ["movie-key-by-url", params],
-      queryFn: () => API.get(url),
+      queryKey: ["movie-key-by-id"],
+      queryFn: () => API.get(`/movie/${id}`),
       select: (data) => data.data,
     });
-
-  // const getMovieById = (id: number) =>
-  //   useQuery({
-  //     queryKey: ["movie-key", id],
-  //     queryFn: () => API.get(`/movie/${id}`),
-  //     select: (data) => data.data,
-  //   });
-  return { getMovies, getMoviesByUrl };
+  return { getMovies, getMovieById };
 };

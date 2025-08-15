@@ -20,11 +20,11 @@ export const useMovies = () => {
       select: (data) => data.data,
     });
 
-  const getMovieById = (id: number) =>
-    useQuery({
-      queryKey: ["movie-key", id],
-      queryFn: () => API.get(`/movie/${id}`),
-      select: (data) => data.data,
-    });
-  return { getMovies, getMovieById, getMoviesByUrl };
+  // const getMovieById = (id: number) =>
+  //   useQuery({
+  //     queryKey: ["movie-key", id],
+  //     queryFn: () => API.get(`/movie/${id}`),
+  //     select: (data) => data.data,
+  //   });
+  return { getMovies, getMoviesByUrl };
 };

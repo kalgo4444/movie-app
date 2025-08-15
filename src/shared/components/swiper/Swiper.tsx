@@ -1,4 +1,4 @@
-import { useState, type FC } from "react";
+import { type FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs, Autoplay } from "swiper/modules";
 import type { IMovie } from "../../../features/movies/types";
@@ -10,7 +10,7 @@ interface Props {
   data: IMovie[] | undefined;
 }
 const MainSwiper: FC<Props> = ({ data }) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  // const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const nav = useNavigate();
 
   return (
@@ -22,13 +22,13 @@ const MainSwiper: FC<Props> = ({ data }) => {
           <Swiper
             modules={[Navigation, Thumbs, Autoplay]}
             navigation={true}
-            thumbs={{ swiper: thumbsSwiper }}
+            // thumbs={{ swiper: thumbsSwiper }}
             loop={true}
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
             }}
-            onSwiper={setThumbsSwiper}
+            // onSwiper={setThumbsSwiper}
             slidesPerView={1}
             spaceBetween={8}
             watchSlidesProgress
@@ -66,7 +66,7 @@ const MainSwiper: FC<Props> = ({ data }) => {
           </Swiper>
 
           <Swiper
-            onSwiper={setThumbsSwiper}
+            // onSwiper={setThumbsSwiper}
             modules={[Navigation, Thumbs]}
             slidesPerView={7}
             spaceBetween={8}

@@ -4,8 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from 'swiper/modules';
 import { useNavigate } from 'react-router-dom'
 
-import "swiper/css";
-// import "swiper/css/navigation";
 
 interface Props {
   data: IMovie[] | undefined;

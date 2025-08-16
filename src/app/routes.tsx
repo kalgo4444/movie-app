@@ -5,7 +5,7 @@ import NotFound from "../layout/NotFound/NotFound";
 const MainLayout = lazy(() => import("../layout/MainLayout"));
 const Home = lazy(() => import("../features/home/pages/Home"));
 const Movies = lazy(() => import("../features/movies/pages/Movies"));
-const MovieDetail = lazy(() => import("../features/movies/pages/MovieDetail"));
+const MovieDetail = lazy(() => import("../features/movies/pages/MovieDetail/MovieDetail"));
 const Bookmark = lazy(() => import("../features/bookmark/pages/Bookmark"));
 
 const AppRoutes = () => {

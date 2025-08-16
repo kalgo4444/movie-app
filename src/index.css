@@ -3,9 +3,9 @@
 @import "swiper/css/navigation";
 @import "swiper/css/thumbs";
 
-*{
+/* *{
   scroll-behavior: smooth;
-}
+} */
 
 @theme {
   --color-mainColor: #c61f1f;

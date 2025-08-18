@@ -25,7 +25,6 @@ const MovieDetail = () => {
   const { getMovieById, getMovieItem } = useMovies();
   const { data, isFetching } = getMovieById<IMovieDetail>(id);
   const { data: imagesData } = getMovieItem(id, "images");
-  console.log(imagesData);
   const { data: similarData } = getMovieItem<IMovieResponse>(id, "similar");
   return (
     <section>
@@ -50,7 +49,7 @@ const MovieDetail = () => {
           </>
           <div className="container">
             <ImageCarousel
-              posters={imagesData?.backdrops}
+              posters={imagesData}
               title={"Фотографии моментов из фильмов"}
             />
             <MovieDetailTabs />

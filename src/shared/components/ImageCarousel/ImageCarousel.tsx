@@ -3,12 +3,12 @@ import type { IMovieImage } from "../../../features/movies/types";
 import { IMAGE_URL } from "../../static";
 
 interface ImageCarouselProps {
-  posters: IMovieImage[] | undefined;
+  posters: any | undefined;
   title: string;
 }
 
 const ImageCarousel: FC<ImageCarouselProps> = ({ posters, title }) => {
-  const newData: IMovieImage[] | undefined = posters?.slice(0, 10);
+  const newData = posters.backdrops.slice(0, 10)
 
   return (
     <section className=" mt-10 md:mt-20">

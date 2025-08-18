@@ -62,3 +62,60 @@ export interface IMovieDetail {
   vote_average: number;
   vote_count: number;
 }
+
+export interface IMovieImageResponse {
+  backdrops: IMovieImage[];
+  id: number;
+  posters: IMovieImage[];
+}
+
+export interface IMovieResponse {
+  page: number;
+  results: IMovie[];
+  total_pages: number;
+  total_results: number;
+}
+
+export interface IMovieCreditsResponse {
+  id: number;
+  cast: ICastMember;
+  crew: ICastMember;
+}
+export interface IMovieImage {
+  aspect_ratio: number;
+  height: number;
+  iso_639_1: string | null;
+  file_path: string;
+  vote_average: number;
+  vote_count: number;
+  width: number;
+}
+
+export interface ICastMember {
+  adult: boolean;
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: string | null;
+  cast_id: number;
+  character: string;
+  credit_id: string;
+  order: number;
+}
+
+export interface CrewMember {
+  adult: boolean;
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: string | null;
+  credit_id: string;
+  department: string;
+  job: string;
+}

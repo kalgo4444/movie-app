@@ -3,9 +3,50 @@
 @import "swiper/css/navigation";
 @import "swiper/css/thumbs";
 
-/* *{
+* {
   scroll-behavior: smooth;
-} */
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #222;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: var(--color-mainColor);
+  min-width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: grid;
+  place-content: center;
+  background-color: var(--color-black);
+  border-radius: 50%;
+}
+
+.tabs__active{
+  border-bottom: 2px solid var(--color-secondText);
+
+}
+.tabs__active.active{
+  border-color: var(--color-mainColor);
+}
 
 @theme {
   --color-mainColor: #c61f1f;
@@ -13,14 +54,13 @@
   --color-secondText: #4d4d4d;
 
   --radius-mainRadius: 12px;
-  
+
   --color-headerLinkTopBorder: #333;
   --color-linkBgHover: oklch(20.5% 0 0);
   --color-linkBgActive: oklch(14.5% 0 0);
 
   --color-footerBg: #111111;
-  --color-footerLinks: #A1A1A1;
-
+  --color-footerLinks: #a1a1a1;
 }
 
 @layer base {
@@ -59,7 +99,7 @@
     display: flex;
     align-items: center;
   }
-  .flexJustifyCenter{
+  .flexJustifyCenter {
     display: flex;
     justify-content: center;
   }
@@ -68,7 +108,7 @@
     align-items: center;
     justify-content: center;
   }
-  .flexJustify{
+  .flexJustify {
     display: flex;
     justify-content: space-between;
   }

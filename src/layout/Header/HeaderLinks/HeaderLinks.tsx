@@ -1,7 +1,7 @@
 import "./HeaderLinks.css";
 import { memo } from "react";
 import { NavLink } from "react-router-dom";
-import { AppWindow, Columns2, Search, TicketPlus } from "lucide-react";
+import { Clapperboard, House, Search, Bookmark } from "lucide-react";
 
 const HeaderLinks = () => {
   return (
@@ -13,35 +13,35 @@ const HeaderLinks = () => {
         >
           <div className="flexColCenter">
             <span>
-              <AppWindow />
+              <House />
             </span>
-            <span>Афиша</span>
+            <span>{"Главный"}</span>
           </div>
         </NavLink>
       </li>
       <li className="w-20 h-12 flexItemCenter linkBgHover linkBgActive duration-200 rounded-mainRadius">
         <NavLink
           className={"link_active text-secondText text-sm font-medium"}
-          to={"/seasons"}
+          to={"/movies"}
         >
           <div className="flexColCenter">
             <span>
-              <Columns2 />
+              <Clapperboard />
             </span>
-            <span>Ceансы</span>
+            <span>Кино</span>
           </div>
         </NavLink>
       </li>
       <li className="w-20 h-12 flexItemCenter linkBgHover linkBgActive duration-200 rounded-mainRadius">
         <NavLink
           className={"link_active text-secondText text-sm font-medium"}
-          to={"/tickets"}
+          to={"/bookmark"}
         >
           <div className="flexColCenter">
             <span>
-              <TicketPlus />
+              <Bookmark />
             </span>
-            <span>Билеты</span>
+            <span>Закладки</span>
           </div>
         </NavLink>
       </li>

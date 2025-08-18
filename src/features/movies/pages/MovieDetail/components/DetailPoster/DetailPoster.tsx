@@ -1,5 +1,6 @@
 import { memo, type FC } from "react";
 import type { IMovieDetail } from "../../../../types";
+import { IMAGE_URL } from '../../../../../../shared/static'
 
 interface DetailPosterProps {
   data: IMovieDetail | undefined;
@@ -10,7 +11,7 @@ const DetailPoster: FC<DetailPosterProps> = ({ data }) => {
     <div className="w-full md:w-2/5">
       <div className="overflow-hidden">
         <img
-          src={`https://image.tmdb.org/t/p/original${data?.poster_path}`}
+          src={`${IMAGE_URL}${data?.poster_path}`}
           alt={data?.original_title}
           className="max-w-3/5 mx-auto rounded-mainRadius"
         />

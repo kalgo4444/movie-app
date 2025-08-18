@@ -1,4 +1,4 @@
-import { Drum, SquarePlay, Videotape, Volleyball } from 'lucide-react'
+import { Drum, SquarePlay, Videotape, Volleyball } from "lucide-react";
 import { memo } from "react";
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,7 @@ const FooterCategoryLink = () => {
         <SquarePlay className="text-mainColor" />
         <Link
           className="text-base text-footerLinks hover:text-mainColor duration-200"
-          to={"/"}
+          to={"/movies"}
         >
           Кино
         </Link>
@@ -19,7 +19,7 @@ const FooterCategoryLink = () => {
         <Videotape className="text-mainColor" />
         <Link
           className="text-base text-footerLinks hover:text-mainColor duration-200"
-          to={"/"}
+          to={"/theater"}
         >
           Театр
         </Link>
@@ -28,7 +28,7 @@ const FooterCategoryLink = () => {
         <Drum className="text-mainColor" />
         <Link
           className="text-base text-footerLinks hover:text-mainColor duration-200"
-          to={"/"}
+          to={"/concerts"}
         >
           Концерты
         </Link>
@@ -37,7 +37,7 @@ const FooterCategoryLink = () => {
         <Volleyball className="text-mainColor" />
         <Link
           className="text-base text-footerLinks hover:text-mainColor duration-200"
-          to={"/"}
+          to={"/sport"}
         >
           Спорт
         </Link>

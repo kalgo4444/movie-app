@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { API } from "../../../shared/api";
-import type { IMovieDetail } from "../types";
 interface IParams {
   page?: number;
 }
@@ -16,11 +15,19 @@ export const useMovies = () => {
       select: (data) => data.data,
     });
 
-  const getMovieById = (id?: string) =>
+  const getMovieById = <T>(id?: string) =>
     useQuery({
-      queryKey: ["movie-key-by-id"],
-      queryFn: () => API.get<IMovieDetail>(`/movie/${id}`),
+      queryKey: ["movie-key", id],
+      queryFn: () => API.get<T>(`/movie/${id}`),
       select: (data) => data.data,
     });
-  return { getMovies, getMovieById };
+
+  const getMovieItem = <T>(id: string | undefined, path: string) =>
+    useQuery({
+      queryKey: ["movie-key", id, path],
+      queryFn: () => API.get<T>(`/movie/${id}/${path}`),
+      select: (data) => data.data,
+    });
+
+  return { getMovies, getMovieById, getMovieItem };
 };

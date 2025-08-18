@@ -23,6 +23,7 @@ const DetailProductionComponies: FC<DetailProductionComponiesProps> = ({
       <div className="flex max-md:flex-col flex-wrap gap-5 md:gap-10 my-2">
         {data?.production_companies?.map((item: IProductionComponies) => (
           <span
+            key={item.id}
             onClick={() => nav(`/company/${item.id}`)}
             className="underline cursor-pointer hover:text-mainColor duration-200"
           >

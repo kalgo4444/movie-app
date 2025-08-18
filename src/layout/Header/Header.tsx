@@ -5,7 +5,7 @@ import HeaderLogo from "./HeaderLogo/HeaderLogo";
 
 const Header = () => {
   return (
-    <header className="w-full h-20 sticky z-50 top-0 left-0 bg-black">
+    <header className="w-full h-20 sticky z-50 top-0 left-0 bg-black border-b border-neutral-800">
       <nav className="container h-full flexCenterBetween">
         <HeaderLogo />
         <HeaderLinks />

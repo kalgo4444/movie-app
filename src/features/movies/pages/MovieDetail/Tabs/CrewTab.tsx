@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useMovies } from "../../../service/useMovies";
 import type { CrewMember, IMovieCreditsResponse } from "../../../types";
@@ -6,6 +6,8 @@ import notFound from "../../../../../shared/assets/images/notFoundUser.png";
 import { IMAGE_URL } from "../../../../../shared/static";
 
 const CrewTab = () => {
+  const [loading, setLoading] = useState<boolean>(true);
+
   const { id } = useParams();
   const { getMovieItem } = useMovies();
   const nav = useNavigate();
@@ -23,12 +25,18 @@ const CrewTab = () => {
             {!item?.profile_path ? (
               <img width={100} loading="lazy" src={notFound} alt="" />
             ) : (
-              <img
-                width={100}
-                loading="lazy"
-                src={`${IMAGE_URL}${item.profile_path}`}
-                alt={item.original_name}
-              />
+              <div>
+                <img
+                  onLoad={() => setLoading(false)}
+                  width={100}
+                  loading="lazy"
+                  src={`${IMAGE_URL}${item.profile_path}`}
+                  alt={item.original_name}
+                />
+                {loading && (
+                  <div className="w-[100px] h-[150px] bg-neutral-700 animate-pulse"></div>
+                )}
+              </div>
             )}
             <h2>{item.original_name}</h2>
             <b>{item.name}</b>

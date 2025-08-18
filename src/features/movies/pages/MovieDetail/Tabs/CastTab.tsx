@@ -14,10 +14,10 @@ const CastTab = () => {
   return (
     <div>
       <div className="flex flex-wrap justify-center gap-5 py-3">
-        {obj?.map((item: ICastMember) => (
+        {obj?.map((item: ICastMember, inx: number) => (
           <div
             onClick={() => nav(`/people/${item.id}`)}
-            key={item.id}
+            key={inx}
             className="w-[110px] cursor-pointer"
           >
             {!item?.profile_path ? (

@@ -1,5 +1,4 @@
 import { memo, type FC } from "react";
-import type { IMovieImage } from "../../../features/movies/types";
 import { IMAGE_URL } from "../../static";
 
 interface ImageCarouselProps {
@@ -14,7 +13,7 @@ const ImageCarousel: FC<ImageCarouselProps> = ({ posters, title }) => {
     <section className=" mt-10 md:mt-20">
       <h2 className="mb-3 text-2xl md:text-3xl font-medium">{title}</h2>
       <div className="scrollDesign flex items-center overflow-x-auto gap-3">
-        {newData?.map((item: IMovieImage, inx: number) => (
+        {newData?.map((item: any, inx: number) => (
           <img
             key={inx}
             src={`${IMAGE_URL}${item.file_path}`}

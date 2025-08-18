@@ -24,11 +24,6 @@ const DetailInfoRight: FC<DetailInfoRightProps> = ({ data }) => {
         {data?.original_language}
       </div>
       <div>
-        <b>Countries: </b>
-        <span></span>
-        {data?.production_countries[0].name}
-      </div>
-      <div>
         <b>Release: </b>
         <span></span>
         {data?.release_date}

@@ -9,10 +9,7 @@ import DetailInfoRight from "./components/DetailInfoRight/DetailInfoRight";
 import DetailInfoLeft from "./components/DetailInfoLeft/DetailInfoLeft";
 import DetailGenres from "./components/DetailGenres/DetailGenres";
 import DetailProductionComponies from "./components/DetailProductionComponies/DetailProductionComponies";
-import type {
-  IMovieDetail,
-  IMovieResponse,
-} from "../../types";
+import type { IMovieDetail, IMovieResponse } from "../../types";
 import ImageCarousel from "../../../../shared/components/ImageCarousel/ImageCarousel";
 import SwiperCarts from "../../../../shared/components/swiperCarts/SwiperCarts";
 import MovieDetailTabs from "./MovieDetailTabs";
@@ -49,7 +46,7 @@ const MovieDetail = () => {
           </>
           <div className="container">
             <ImageCarousel
-              posters={imagesData}
+              data={imagesData}
               title={"Фотографии моментов из фильмов"}
             />
             <MovieDetailTabs />

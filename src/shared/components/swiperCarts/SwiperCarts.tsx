@@ -10,6 +10,7 @@ interface Props {
 }
 
 const SwiperCarts: FC<Props> = ({ title, data }) => {
+  scrollTo(0, 0);
   const nav = useNavigate();
   return (
     <section className="mt-12.5">

@@ -1,4 +1,4 @@
-import { memo, type FC } from "react";
+import { memo, useState, type FC } from "react";
 import type { IMovieDetail } from "../../../../types";
 import { IMAGE_URL } from "../../../../../../shared/static";
 
@@ -7,6 +7,7 @@ interface DetailBackdropProps {
 }
 
 const DetailBackdrop: FC<DetailBackdropProps> = ({ data }) => {
+  const [lodaing, setLodaing] = useState<boolean>(true);
   return (
     <div className="relative hidden md:block">
       <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
@@ -15,11 +16,18 @@ const DetailBackdrop: FC<DetailBackdropProps> = ({ data }) => {
           Image not found
         </div>
       ) : (
-        <img
-          src={`${IMAGE_URL}${data?.backdrop_path}`}
-          alt=""
-          className="w-full h-[35vh] md:h-[50vh] lg:h-[80vh] object-cover rounded-mainRadius"
-        />
+        <div>
+          <img
+            loading="lazy"
+            onLoad={() => setLodaing(false)}
+            src={`${IMAGE_URL}${data?.backdrop_path}`}
+            alt={data.original_title}
+            className="w-full h-[35vh] md:h-[50vh] lg:h-[80vh] object-cover rounded-mainRadius"
+          />
+          {lodaing && (
+            <div className="w-full h-[35vh] md:h-[50vh] lg:h-[80vh] bg-neutral-700 animate-pulse"></div>
+          )}
+        </div>
       )}
     </div>
   );

@@ -10,9 +10,7 @@ import DetailInfoLeft from "./components/DetailInfoLeft/DetailInfoLeft";
 import DetailGenres from "./components/DetailGenres/DetailGenres";
 import DetailProductionComponies from "./components/DetailProductionComponies/DetailProductionComponies";
 import type {
-  IMovieCreditsResponse,
   IMovieDetail,
-  IMovieImageResponse,
   IMovieResponse,
 } from "../../types";
 import ImageCarousel from "../../../../shared/components/ImageCarousel/ImageCarousel";
@@ -26,7 +24,8 @@ const MovieDetail = () => {
   const { id } = useParams();
   const { getMovieById, getMovieItem } = useMovies();
   const { data, isFetching } = getMovieById<IMovieDetail>(id);
-  const { data: imagesData } = getMovieItem<IMovieImageResponse>(id, "images");
+  const { data: imagesData } = getMovieItem(id, "images");
+  console.log(imagesData);
   const { data: similarData } = getMovieItem<IMovieResponse>(id, "similar");
   return (
     <section>
@@ -49,7 +48,7 @@ const MovieDetail = () => {
               </div>
             </div>
           </>
-          <div className='container'>
+          <div className="container">
             <ImageCarousel
               posters={imagesData?.backdrops}
               title={"Фотографии моментов из фильмов"}

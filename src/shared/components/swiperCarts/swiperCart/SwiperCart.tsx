@@ -2,15 +2,12 @@ import { memo, type FC } from "react";
 import type { IMovie } from "../../../../features/movies/types";
 import { useNavigate } from "react-router-dom";
 import LoadingImage from "./components/LoadingImage/LoadingImage";
-import { useDispatch } from "react-redux";
-import { toggleBookmark } from "../../../../features/bookmark/store/bookmarkSlice";
 interface Props {
   data: IMovie[] | undefined;
 }
 const SwiperCart: FC<Props> = ({ data }) => {
   const newData = data?.slice(0, 8);
   const nav = useNavigate();
-  const dis = useDispatch();
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
       {newData?.map((item: IMovie) => (

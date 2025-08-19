@@ -27,11 +27,11 @@ const PeopleDetail = () => {
         ) : (
           <div>
             <div className="flex flex-col md:flex-row gap-10">
-              <div className="w-full md:w-2/5 lg:w-3/12 min-h-[40vh]">
+              <div className="w-full md:w-2/5 lg:w-3/12">
                 <div>
                   <div>
                     {!peopleData?.profile_path ? (
-                      <div className="block mx-auto rounded-mainRadius w-full md:w-[300px] lg:w-[350px] h-[400px] bg-neutral-900 flex items-center justify-center">
+                      <div className="text-center mx-auto flexItemCenter rounded-mainRadius w-full h-[400px] bg-neutral-900 ">
                         User not found
                       </div>
                     ) : (
@@ -63,10 +63,20 @@ const PeopleDetail = () => {
               </div>
               <div className="w-full md:w-3/5 lg:w-3/4">
                 <h2 className="text-3xl font-semibold">{peopleData?.name}</h2>
-                <p className="my-2">{peopleData?.biography}</p>
+                <div className="my-2">
+                  {peopleData?.biography ? (
+                    <p>{peopleData.biography}</p>
+                  ) : (
+                    <p>User biography not found</p>
+                  )}
+                </div>
               </div>
             </div>
-            <SwiperCarts data={peopleCastData?.cast} title="Титры фильма" />
+            {peopleCastData?.cast ? (
+              <SwiperCarts data={peopleCastData?.cast} title="Титры фильма" />
+            ) : (
+              <></>
+            )}
           </div>
         )}
       </div>

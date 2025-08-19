@@ -3,7 +3,7 @@ import { memo } from "react";
 const Bookmark = () => {
   return (
     <div className="Bookmark">
-      <h2>Bookmark</h2>
+      <title>Movie | Bookmark</title>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import { memo, useState, type FC } from "react";
 import { useNavigate } from "react-router-dom";
-import LoadingImage from "./components/LoadingImage/LoadingImage";
 import { IMAGE_URL } from "../../../static";
 interface Props {
   data: any | undefined;

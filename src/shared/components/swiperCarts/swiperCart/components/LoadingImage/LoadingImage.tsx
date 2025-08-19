@@ -25,7 +25,7 @@ const LoadingImage: FC<Props> = ({ src, alt, className }) => {
       )}
 
       {loading && (
-        <div className="max-h-[400px] h-full bg-neutral-700 animate-pulse"></div>
+        <div className=" h-[400px] bg-neutral-700 animate-pulse"></div>
       )}
     </div>
   );

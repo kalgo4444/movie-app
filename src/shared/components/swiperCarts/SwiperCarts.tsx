@@ -1,12 +1,11 @@
 import { memo, type FC } from "react";
 import { useNavigate } from "react-router-dom";
 import SwiperCart from "./swiperCart/SwiperCart";
-import type { IMovie } from "../../../features/movies/types";
 import SwiperCartsSkeleton from "./skeleton/SwiperCartsSkeleton";
 
 interface Props {
   title: string;
-  data: IMovie[] | undefined;
+  data: any | undefined;
 }
 
 const SwiperCarts: FC<Props> = ({ title, data }) => {

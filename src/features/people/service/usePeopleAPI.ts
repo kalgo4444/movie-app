@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { API } from "../../../shared/api";
-import type { IPerson } from '../../../shared/types'
+import type { IPerson } from "../../../shared/types";
 
 export const usePeopleAPI = () => {
   const getPeopleById = (id: string | undefined) =>
@@ -10,5 +10,12 @@ export const usePeopleAPI = () => {
       select: (data) => data.data,
     });
 
-  return { getPeopleById };
+  const getPeopleItem = <T>(id: string | undefined, path: string) =>
+    useQuery({
+      queryKey: ["people-key", id, path],
+      queryFn: () => API.get<T>(`/person/${id}/${path}`),
+      select: (data) => data.data,
+    });
+
+  return { getPeopleById, getPeopleItem };
 };

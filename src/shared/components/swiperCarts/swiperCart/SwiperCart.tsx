@@ -7,12 +7,14 @@ interface Props {
 }
 const SwiperCart: FC<Props> = ({ data }) => {
   const [loading, setLodaing] = useState<boolean>(true);
-  const newData = data?.slice(0, 8);
   const nav = useNavigate();
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-      {newData?.map((item: any) => (
-        <div className="bg-neutral-900 rounded-mainRadius pb-2 md:pb-5" key={item.id}>
+      {data?.map((item: any) => (
+        <div
+          className="bg-neutral-900 rounded-mainRadius pb-2 md:pb-5"
+          key={item.id}
+        >
           <div
             onClick={() => nav(`/movie/${item.id}`)}
             className="overflow-hidden rounded-mainRadius cursor-pointer"
@@ -47,7 +49,7 @@ const SwiperCart: FC<Props> = ({ data }) => {
             <p className="text-sm md:text-lg text-secondText mb-3">
               {item.original_language.toUpperCase()}
             </p>
-            <div className='flex items-center justify-end'>
+            <div className="flex items-center justify-end">
               <button className="bg-mainColor text-xs sm:text-sm md:text-base font-medium w-1/2 py-2 md:py-3 rounded-mainRadius flexItemCenter btn btnHover btnActive">
                 <Bookmark />
               </button>

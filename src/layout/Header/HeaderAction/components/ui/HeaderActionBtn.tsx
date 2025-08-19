@@ -6,7 +6,7 @@ const HeaderActionBtn = ({ text }: { text: string }) => {
   return (
     <button
       onClick={() => nav("/login")}
-      className="btn bg-mainColor text-mainText font-medium py-2.5 sm:py-3 md:py-3.5 px-8 sm:px-12 md:px-16 rounded-mainRadius btnHover btnActive duration-200"
+      className="btn bg-mainColor text-mainText font-medium py-2 sm:py-2.5 md:py-3 px-8 sm:px-12 md:px-16 rounded-mainRadius btnHover btnActive duration-200"
     >
       {text}
     </button>

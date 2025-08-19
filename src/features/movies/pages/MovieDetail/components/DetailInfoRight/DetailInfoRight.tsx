@@ -10,8 +10,7 @@ const DetailInfoRight: FC<DetailInfoRightProps> = ({ data }) => {
     <div className="w-full md:w-1/2  flex flex-col gap-4">
       <div>
         <b>Budget: </b>
-        <span></span>
-        {data?.budget}$
+        <span>{data?.budget}</span>
       </div>
       <div>
         <b>Country: </b>

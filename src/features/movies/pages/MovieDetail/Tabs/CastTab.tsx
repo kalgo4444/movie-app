@@ -25,7 +25,9 @@ const CastTab = () => {
             className="w-[110px] cursor-pointer"
           >
             {!item?.profile_path ? (
-              <img width={100} loading="lazy" src={notFound} alt="" />
+              <div className="w-[100px] h-[150px] flex items-center">
+                <img loading="lazy" src={notFound} alt="Not found image" />
+              </div>
             ) : (
               <div>
                 <img
@@ -34,7 +36,7 @@ const CastTab = () => {
                   loading="lazy"
                   src={`${IMAGE_URL}${item.profile_path}`}
                   alt={item.original_name}
-                  className='rounded-mainRadius'
+                  className="rounded-mainRadius"
                 />
                 {loading && (
                   <div className="w-[100px] h-[150px] bg-neutral-700 animate-pulse"></div>
@@ -42,7 +44,7 @@ const CastTab = () => {
               </div>
             )}
             <h2>{item.original_name}</h2>
-            <b className='block'>{item.character}</b>
+            <b className="block">{item.character}</b>
           </div>
         ))}
       </div>

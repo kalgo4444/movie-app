@@ -3,6 +3,10 @@
 @import "swiper/css/navigation";
 @import "swiper/css/thumbs";
 
+*{
+  scroll-behavior: smooth;
+}
+
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;

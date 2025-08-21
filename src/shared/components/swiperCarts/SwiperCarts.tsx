@@ -1,5 +1,5 @@
 import { memo, type FC } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import SwiperCart from "./swiperCart/SwiperCart";
 import SwiperCartsSkeleton from "./skeleton/SwiperCartsSkeleton";
 
@@ -9,21 +9,27 @@ interface Props {
 }
 
 const SwiperCarts: FC<Props> = ({ title, data }) => {
-  scrollTo(0, 0);
   const nav = useNavigate();
+  const { pathname } = useLocation();
   return (
     <section className="mt-12.5">
       <div className="container">
         {data ? (
-          <div className="flex items-center justify-between mb-5">
-            <span className="text-lg font-medium">{title}</span>
-            <span
-              className="text-mainColor cursor-pointer"
-              onClick={() => nav("/movies")}
-            >
-              Показать все {">"}{" "}
-            </span>
-          </div>
+          <>
+            {pathname == "/movies" ? (
+              <></>
+            ) : (
+              <div className="flex items-center justify-between mb-5">
+                <span className="text-lg font-medium">{title}</span>
+                <span
+                  className="text-mainColor cursor-pointer"
+                  onClick={() => nav("/movies")}
+                >
+                  Показать все {">"}{" "}
+                </span>
+              </div>
+            )}
+          </>
         ) : (
           <></>
         )}

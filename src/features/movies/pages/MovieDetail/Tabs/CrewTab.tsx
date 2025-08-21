@@ -23,7 +23,13 @@ const CrewTab = () => {
             className="w-[110px] cursor-pointer"
           >
             {!item?.profile_path ? (
-              <img width={100} loading="lazy" src={notFound} alt="" />
+              <div className='w-[100px] h-[150px] flex items-center'>
+                <img
+                  loading="lazy"
+                  src={notFound}
+                  alt="Not found people image"
+                />
+              </div>
             ) : (
               <div>
                 <img
@@ -39,7 +45,7 @@ const CrewTab = () => {
               </div>
             )}
             <h2>{item.original_name}</h2>
-            <b>{item.name}</b>
+            <b>{item.job}</b>
           </div>
         ))}
       </div>

@@ -8,10 +8,10 @@ import SwiperCarts from "../../../../shared/components/swiperCarts/SwiperCarts";
 
 const PeopleDetail = () => {
   const [loading, setLodaing] = useState<boolean>(true);
+  const { id } = useParams();
   useEffect(() => {
     scrollTo(0, 0);
-  }, []);
-  const { id } = useParams();
+  }, [id]);
   const { getPeopleById, getPeopleItem } = usePeopleAPI();
   const { data: peopleData, isFetching: peopleFetching } = getPeopleById(id);
   const { data: peopleCastData } = getPeopleItem<IPeopleResopnse>(

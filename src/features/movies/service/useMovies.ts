@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { API } from "../../../shared/api";
 interface IParams {
-  page?: number;
+  page?: string;
+  with_genres?: string;
 }
 
 export const useMovies = () => {

@@ -15,10 +15,10 @@ import SwiperCarts from "../../../../shared/components/swiperCarts/SwiperCarts";
 import MovieDetailTabs from "./MovieDetailTabs";
 
 const MovieDetail = () => {
+  const { id } = useParams();
   useEffect(() => {
     scrollTo(0, 0);
-  }, []);
-  const { id } = useParams();
+  }, [id]);
   const { getMovieById, getMovieItem } = useMovies();
   const { data, isFetching } = getMovieById<IMovieDetail>(id);
   const { data: imagesData } = getMovieItem(id, "images");

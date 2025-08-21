@@ -21,6 +21,12 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.ant-pagination-next,
+.ant-pagination-prev,
+.ant-pagination-item-link {
+  color: white;
+  background-color: white;
+}
 
 
 .swiper-button-prev::after,
@@ -36,11 +42,10 @@
   border-radius: 50%;
 }
 
-.tabs__active{
+.tabs__active {
   border-bottom: 2px solid var(--color-secondText);
-
 }
-.tabs__active.active{
+.tabs__active.active {
   border-color: var(--color-mainColor);
 }
 

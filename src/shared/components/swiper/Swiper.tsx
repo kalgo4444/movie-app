@@ -50,7 +50,7 @@ const MainSwiper: FC<Props> = ({ data }) => {
                     <p className="text-sm font-semibold leading-[125%] tracking-[0.01em] text-center mb-4">
                       {slide.release_date.split("-")[0]} •{" "}
                       {slide.original_language.toUpperCase()} •{" "}
-                      {slide.vote_average}
+                      {Number(slide.vote_average).toFixed(0)}
                     </p>
                     <button
                       onClick={() => nav(`/movie/${slide.id}`)}

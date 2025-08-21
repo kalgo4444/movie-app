@@ -75,7 +75,6 @@ const Movies = () => {
             <div className="flex justify-center mt-10">
               <Pagination
                 responsive={true}
-                size="small"
                 current={+page}
                 onChange={handleChange}
                 total={data?.total_pages}

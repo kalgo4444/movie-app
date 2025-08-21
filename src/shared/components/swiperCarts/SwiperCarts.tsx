@@ -33,7 +33,11 @@ const SwiperCarts: FC<Props> = ({ title, data }) => {
         ) : (
           <></>
         )}
-        {data === null ? <SwiperCartsSkeleton /> : <SwiperCart data={data} />}
+        {data === null ? (
+          <SwiperCartsSkeleton />
+        ) : (
+          <SwiperCart data={data} />
+        )}
       </div>
     </section>
   );

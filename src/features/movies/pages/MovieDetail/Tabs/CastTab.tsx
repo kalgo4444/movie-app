@@ -14,7 +14,6 @@ const CastTab = () => {
   const nav = useNavigate();
   const { data } = getMovieItem<IMovieCreditsResponse>(id, "credits");
   const obj: any | undefined = data?.cast;
-  console.log(obj);
   const newData = show ? obj : obj?.slice(0, 11);
   return (
     <div>

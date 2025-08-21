@@ -3,6 +3,9 @@ import { API } from "../../../shared/api";
 interface IParams {
   page?: string;
   with_genres?: string;
+  sort_by?: string;
+  "release_date.gte"?: string;
+  "release_date.lte"?: string;
 }
 
 export const useMovies = () => {

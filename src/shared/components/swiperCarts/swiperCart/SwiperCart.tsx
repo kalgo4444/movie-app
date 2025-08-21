@@ -9,7 +9,7 @@ const SwiperCart: FC<Props> = ({ data }) => {
   const [loading, setLodaing] = useState<boolean>(true);
   const nav = useNavigate();
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+    <div className="grid max-[380px]:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
       {data?.map((item: any) => (
         <div
           className="bg-neutral-900 rounded-mainRadius pb-2 md:pb-5"
@@ -21,7 +21,7 @@ const SwiperCart: FC<Props> = ({ data }) => {
           >
             <div>
               {!item.poster_path ? (
-                <div className="h-[400px] flex items-center justify-center bg-neutral-900">
+                <div className=" h-[190px] sm:h-[430px] md:h-[340px] xl:h-[400px] flex items-center justify-center bg-neutral-900">
                   Image not Found
                 </div>
               ) : (

@@ -6,16 +6,20 @@ import notFound from "../../../../../shared/assets/images/notFoundUser.png";
 import { IMAGE_URL } from "../../../../../shared/static";
 
 const CastTab = () => {
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [show, setShow] = useState<boolean>(false);
+
   const { id } = useParams();
   const { getMovieItem } = useMovies();
   const nav = useNavigate();
   const { data } = getMovieItem<IMovieCreditsResponse>(id, "credits");
   const obj: any | undefined = data?.cast;
+  console.log(obj);
+  const newData = show ? obj : obj?.slice(0, 11);
   return (
     <div>
       <div className="flex flex-wrap justify-center gap-5 py-3">
-        {obj?.map((item: ICastMember, inx: number) => (
+        {newData?.map((item: ICastMember, inx: number) => (
           <div
             onClick={() => nav(`/people/${item.id}`)}
             key={inx}
@@ -31,6 +35,7 @@ const CastTab = () => {
                   loading="lazy"
                   src={`${IMAGE_URL}${item.profile_path}`}
                   alt={item.original_name}
+                  className='rounded-mainRadius'
                 />
                 {loading && (
                   <div className="w-[100px] h-[150px] bg-neutral-700 animate-pulse"></div>
@@ -38,9 +43,21 @@ const CastTab = () => {
               </div>
             )}
             <h2>{item.original_name}</h2>
-            <b>{item.name}</b>
+            <b className='block'>{item.character}</b>
           </div>
         ))}
+      </div>
+      <div className="mt-5">
+        {obj?.length > 12 ? (
+          <button
+            onClick={() => setShow((p) => !p)}
+            className="px-4 py-2 bg-mainColor text-lg font-semibold rounded-mainRadius block mx-auto btn btnHover btnActive"
+          >
+            {show ? "Show less" : "Show more"}
+          </button>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

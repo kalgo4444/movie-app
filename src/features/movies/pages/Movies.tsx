@@ -9,12 +9,13 @@ const Movies = () => {
   const [params, setParams] = useSearchParams();
   const page = params.get("page") || "1";
   const with_genres = params.get("genre") || "";
+  const sort_by = params.get("sort") || "";
   useEffect(() => {
     scrollTo(0, 0);
   }, [page]);
   const { getMovies } = useMovies();
   const { getGenres } = useGenres();
-  const { data, isFetching } = getMovies({ page, with_genres });
+  const { data, isFetching } = getMovies({ page, with_genres, sort_by });
   const { data: genresData } = getGenres({ language: "ru" });
   const otta = Array.from({ length: 12 }).fill("");
   const handleChange = (value: number) => {
@@ -25,6 +26,10 @@ const Movies = () => {
     params.set("genre", value);
     setParams(params);
   };
+  const handleSortChnage = (value: string) => {
+    params.set("sort", value);
+    setParams(params);
+  };
   const option = genresData?.genres.map(({ id, name }: any) => ({
     value: id.toString(),
     label: name.toUpperCase(),
@@ -33,12 +38,23 @@ const Movies = () => {
     <section>
       <title>Movie | Movies List</title>
       <div className="container">
-        <div className="flex items-center mt-5">
+        <div className="flex flex-col sm:flex-row items-center gap-5 mt-5">
           <Select
             onChange={handleSelectChange}
             className="max-w-[300px] w-full"
-            placeholder={"Select genres"}
+            placeholder={"Жанры"}
             options={option}
+          ></Select>
+          <Select
+            onChange={handleSortChnage}
+            className="max-w-[300px] w-full"
+            placeholder={"Сортировать по"}
+            options={[
+              { label: "Сейчас смотрят", value: "popularity.desc" },
+              { label: "Новые фильмы", value: "primary_release_data.acs" },
+              { label: "Популярные", value: "vote_count.desc" },
+              { label: "Средний рейтинг", value: "vote_average.desc" },
+            ]}
           ></Select>
         </div>
         {isFetching ? (
@@ -58,6 +74,8 @@ const Movies = () => {
             <SwiperCarts data={data?.results} title={"Все"} />
             <div className="flex justify-center mt-10">
               <Pagination
+                responsive={true}
+                size="small"
                 current={+page}
                 onChange={handleChange}
                 total={data?.total_pages}

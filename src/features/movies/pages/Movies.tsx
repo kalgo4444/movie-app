@@ -11,7 +11,7 @@ const Movies = () => {
   const with_genres = params.get("genre") || "";
   useEffect(() => {
     scrollTo(0, 0);
-  }, []);
+  }, [page]);
   const { getMovies } = useMovies();
   const { getGenres } = useGenres();
   const { data, isFetching } = getMovies({ page, with_genres });
@@ -43,7 +43,7 @@ const Movies = () => {
         </div>
         {isFetching ? (
           <div className="container my-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-            {otta?.map((item: any, inx: number) => (
+            {otta?.map((_, inx: number) => (
               <div key={inx} className="h-[500px]">
                 <div className="w-full h-[450px] bg-neutral-700 animate-pulse  rounded-mainRadius"></div>
                 <div>

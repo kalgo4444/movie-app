@@ -8,7 +8,7 @@ const Home = () => {
     scrollTo(0, 0);
   }, []);
   const { getMovies } = useMovies();
-  const { data } = getMovies({ page: 1 });
+  const { data } = getMovies({ page: "1" });
   return (
     <section>
       <MainSwiper data={data?.results} />

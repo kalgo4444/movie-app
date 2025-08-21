@@ -30,10 +30,12 @@ const Movies = () => {
     params.set("sort", value);
     setParams(params);
   };
-  const option = genresData?.genres.map(({ id, name }: any) => ({
-    value: id.toString(),
-    label: name.toUpperCase(),
-  }));
+  const option =
+    genresData?.genres.map(({ id, name }: any) => ({
+      value: id.toString(),
+      label: name.toUpperCase(),
+    })) || [];
+  const newGenres = [{ label: "Все", value: "" }, ...option];
   return (
     <section>
       <title>Movie | Movies List</title>
@@ -43,9 +45,11 @@ const Movies = () => {
             onChange={handleSelectChange}
             className="max-w-[300px] w-full"
             placeholder={"Жанры"}
-            options={option}
+            options={newGenres}
+            defaultValue={""}
           ></Select>
           <Select
+            defaultValue={"popularity.desc"}
             onChange={handleSortChnage}
             className="max-w-[300px] w-full"
             placeholder={"Сортировать по"}
@@ -74,7 +78,7 @@ const Movies = () => {
             <SwiperCarts data={data?.results} title={"Все"} />
             <div className="flex justify-center mt-10">
               <Pagination
-                className='pagination_item'
+                className="pagination_item"
                 responsive={true}
                 current={+page}
                 onChange={handleChange}

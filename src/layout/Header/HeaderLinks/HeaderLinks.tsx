@@ -2,7 +2,6 @@ import "./HeaderLinks.css";
 import { memo } from "react";
 import { NavLink } from "react-router-dom";
 import { Clapperboard, House, Search, Bookmark } from "lucide-react";
-import { Badge } from "antd";
 import { useSelector } from "react-redux";
 
 const HeaderLinks = () => {
@@ -22,7 +21,7 @@ const HeaderLinks = () => {
           </div>
         </NavLink>
       </li>
-      <li className="w-20 h-12 flexItemCenter linkBgHover linkBgActive duration-200 rounded-mainRadius">
+      <li className="w-20 h-12  flexItemCenter linkBgHover linkBgActive duration-200 rounded-mainRadius">
         <NavLink
           className={"link_active text-secondText text-sm font-medium"}
           to={"/movies"}
@@ -35,20 +34,23 @@ const HeaderLinks = () => {
           </div>
         </NavLink>
       </li>
-      <li className="w-20 h-12 flexItemCenter linkBgHover linkBgActive duration-200 rounded-mainRadius">
-        <Badge count={obj?.length}>
-          <NavLink
-            className={"link_active text-secondText text-sm font-medium"}
-            to={"/bookmark"}
-          >
-            <div className="flexColCenter">
-              <span>
-                <Bookmark />
-              </span>
-              <span>Закладки</span>
-            </div>
-          </NavLink>
-        </Badge>
+      <li className="w-20 h-12 relative flexItemCenter linkBgHover linkBgActive duration-200 rounded-mainRadius">
+        {obj?.length ? (
+          <div className="absolute top-0 right-0 bg-mainColor text-white w-4 h-4 rounded-full text-sm flex items-center justify-center">{obj?.length}</div>
+        ) : (
+          <></>
+        )}
+        <NavLink
+          className={"link_active text-secondText text-sm font-medium"}
+          to={"/bookmark"}
+        >
+          <div className="flexColCenter">
+            <span>
+              <Bookmark />
+            </span>
+            <span>Закладки</span>
+          </div>
+        </NavLink>
       </li>
       <li className="w-20 h-12 flexItemCenter linkBgHover linkBgActive duration-200 rounded-mainRadius">
         <NavLink

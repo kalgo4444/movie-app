@@ -3,7 +3,7 @@
 @import "swiper/css/navigation";
 @import "swiper/css/thumbs";
 
-*{
+* {
   scroll-behavior: smooth;
 }
 
@@ -25,13 +25,6 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-.ant-pagination-next,
-.ant-pagination-prev,
-.ant-pagination-item-link {
-  color: white;
-  background-color: white;
-}
-
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
@@ -44,6 +37,24 @@
   place-content: center;
   background-color: var(--color-black);
   border-radius: 50%;
+}
+.ant-pagination {
+  background-color: transparent !important;
+}
+.ant-pagination-next,
+.ant-pagination-prev {
+  background-color: #444 !important
+}
+.ant-pagination-item {
+  color: white;
+  background-color: #444 !important;
+  border-color: #222 !important;
+}
+.ant-pagination-item-active {
+  background-color: var(--color-mainColor) !important;
+}
+.ant-pagination-item a {
+  color: white !important;
 }
 
 .tabs__active {

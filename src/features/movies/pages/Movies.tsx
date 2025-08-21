@@ -74,6 +74,7 @@ const Movies = () => {
             <SwiperCarts data={data?.results} title={"Все"} />
             <div className="flex justify-center mt-10">
               <Pagination
+                className='pagination_item'
                 responsive={true}
                 current={+page}
                 onChange={handleChange}

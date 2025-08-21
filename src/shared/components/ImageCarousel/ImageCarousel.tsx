@@ -8,7 +8,7 @@ interface ImageCarouselProps {
 }
 
 const ImageCarousel: FC<ImageCarouselProps> = ({ data, title }) => {
-  const nowData = data?.backdrops?.slice(0, 5);
+  const nowData = data?.backdrops?.slice(0, 4);
   return (
     <section className=" mt-10 md:mt-20">
       <h2 className="mb-3 text-2xl md:text-3xl font-medium">{title}</h2>

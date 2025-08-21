@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 
 const HeaderLinks = () => {
   const obj = useSelector((state: any) => state.bookmark.data);
-  console.log(obj);
   return (
     <ul className="flexCenter max-md:bg-black z-50 max-md:fixed max-md:bottom-0 max-md:left-0 max-md:w-full max-md:border-t max-md:py-3 max-md:border-headerLinkTopBorder max-md:flex max-md:justify-evenly">
       <li className="w-20 h-12 flexItemCenter linkBgHover linkBgActive duration-200 rounded-mainRadius">

@@ -13,6 +13,7 @@ import type { IMovieDetail, IMovieResponse } from "../../types";
 import ImageCarousel from "../../../../shared/components/ImageCarousel/ImageCarousel";
 import SwiperCarts from "../../../../shared/components/swiperCarts/SwiperCarts";
 import MovieDetailTabs from "./MovieDetailTabs";
+import { Empty } from "antd";
 
 const MovieDetail = () => {
   const { id } = useParams();
@@ -22,7 +23,11 @@ const MovieDetail = () => {
   const { getMovieById, getMovieItem } = useMovies();
   const { data, isFetching } = getMovieById<IMovieDetail>(id);
   const { data: imagesData } = getMovieItem(id, "images");
+  const { data: videosData } = getMovieItem(id, "videos");
   const { data: similarData } = getMovieItem<IMovieResponse>(id, "similar");
+  const videoNewData = videosData?.results.find(
+    (item: any) => item.type === "Trailer"
+  );
   return (
     <section>
       {isFetching ? (
@@ -50,6 +55,22 @@ const MovieDetail = () => {
               title={"Фотографии моментов из фильмов"}
             />
             <MovieDetailTabs />
+            <div className="mt-16">
+              {!videoNewData ? (
+                <div className="w-full flexItemCenter bg-neutral-900 h-[300px] min-[450px]:h-[350px] sm:h-[400px] md:h-[500px] lg:h-[700px] xl:h-[800px]">
+                  Video not found
+                </div>
+              ) : (
+                <div>
+                  <iframe
+                    className="w-full h-[300px] min-[450px]:h-[350px] sm:h-[400px] md:h-[500px] lg:h-[700px] xl:h-[800px]"
+                    src={`https://www.youtube.com/embed/${videoNewData?.key}`}
+                    title="YouTube video player"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              )}
+            </div>
             <SwiperCarts data={similarData?.results} title="Похожие фильмы" />
           </div>
         </div>

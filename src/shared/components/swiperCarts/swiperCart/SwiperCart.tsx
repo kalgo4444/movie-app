@@ -37,7 +37,7 @@ const SwiperCart: FC<Props> = ({ data }) => {
                     />
                     <div
                       onClick={() => dis(toggleItem(item))}
-                      className="z-50 absolute top-3 right-3 w-10 h-10 bg-neutral-900 rounded-mainRadius flexItemCenter"
+                      className="absolute top-3 right-3 w-10 h-10 bg-neutral-900 rounded-mainRadius flexItemCenter"
                     >
                       {obj?.some((movie: any) => movie.id == item.id) ? (
                         <Bookmark

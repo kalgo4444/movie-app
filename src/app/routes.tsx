@@ -12,6 +12,7 @@ const MovieDetail = lazy(
   () => import("../features/movies/pages/MovieDetail/MovieDetail")
 );
 const Bookmark = lazy(() => import("../features/bookmark/pages/Bookmark"));
+const Search = lazy(() => import("../features/search/pages/Search"));
 const CompanyDetail = lazy(
   () => import("../features/company/pages/CompanyDetail/CompanyDetail.jsx")
 );
@@ -47,6 +48,10 @@ const AppRoutes = () => {
         {
           path: "bookmark",
           element: <Bookmark />,
+        },
+        {
+          path: "search",
+          element: <Search />,
         },
         {
           path: "company/:id",

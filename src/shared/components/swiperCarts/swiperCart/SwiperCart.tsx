@@ -17,7 +17,7 @@ const SwiperCart: FC<Props> = ({ data }) => {
     <div className="grid max-[380px]:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
       {data?.map((item: any) => (
         <div
-          className="bg-neutral-900 rounded-mainRadius pb-2 md:pb-5"
+          className="bg-neutral-900 rounded-mainRadius pb-2 md:pb-5 flex flex-col justify-between"
           key={item.id}
         >
           <div

@@ -1,11 +1,18 @@
 import "../style/Search.css";
-import { Input } from "antd";
-import { memo } from "react";
+import { Empty, Input } from "antd";
+import { memo, useEffect, useState } from "react";
+import { useSearch } from "../services/useSearch";
+import SwiperCarts from "../../../shared/components/swiperCarts/SwiperCarts";
+import { useDebounce } from "../../../shared/hooks/useDebounce";
 
 const Search = () => {
-  const handleSearch = (value: string) => {
-    console.log(value);
-  };
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, []);
+  const [value, setValue] = useState("");
+  const { getMovieBySearch } = useSearch();
+  const searchValue = useDebounce<string>(value, 1200);
+  const { data: searchData } = getMovieBySearch({ query: searchValue });
   return (
     <section>
       <div className="container">
@@ -13,10 +20,19 @@ const Search = () => {
           <Input
             type="text"
             className="h-12"
-            onChange={(e) => handleSearch(e.target.value)}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
             placeholder="Поиск"
           />
         </div>
+        {searchData?.results.length > 0 ? (
+          <SwiperCarts data={searchData?.results} title="Поиск" />
+        ) : (
+          <div className="h-[60vh] flexItemCenter flex-col">
+            <Empty />
+            <p className="text-4xl font-semibold">Поиск</p>
+          </div>
+        )}
       </div>
     </section>
   );

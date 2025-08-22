@@ -17,6 +17,8 @@ export const useMovies = () => {
           params,
         }),
       select: (data) => data.data,
+      gcTime: 1000 * 60 * 30,
+      staleTime: 1000 * 60 * 15,
     });
 
   const getMovieById = <T>(id?: string) =>

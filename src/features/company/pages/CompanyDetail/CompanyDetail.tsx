@@ -9,10 +9,7 @@ const CompanyDetail = () => {
   const { id } = useParams();
   const { getCompanyById, getCompanyItem } = useCompanyAPI();
   const { data, isFetching } = getCompanyById(id);
-  const { data: imageData, isFetching: imageFetching } = getCompanyItem(
-    id,
-    "images"
-  );
+  const { data: imageData } = getCompanyItem(id, "images");
   console.log(data);
   console.log(imageData);
   return (
@@ -47,7 +44,9 @@ const CompanyDetail = () => {
               </div>
             </div>
             <section>
-              <h2 className='text-lg md:text-3xl font-semibold'>Company Images</h2>
+              <h2 className="text-lg md:text-3xl font-semibold">
+                Company Images
+              </h2>
               <div className="mt-10 flex gap-5 overflow-x-auto">
                 {!imageData?.logos ? (
                   <div className="min-h-[40vh] flexItemCenter">

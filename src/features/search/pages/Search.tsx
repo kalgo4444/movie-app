@@ -1,6 +1,6 @@
 import "../style/Search.css";
-import { Empty, Input } from "antd";
-import { memo, useEffect, useState } from "react";
+import { Empty, Input, type InputRef } from "antd";
+import { memo, useEffect, useRef, useState } from "react";
 import { useSearch } from "../services/useSearch";
 import SwiperCarts from "../../../shared/components/swiperCarts/SwiperCarts";
 import { useDebounce } from "../../../shared/hooks/useDebounce";
@@ -8,7 +8,9 @@ import { useDebounce } from "../../../shared/hooks/useDebounce";
 const Search = () => {
   useEffect(() => {
     scrollTo(0, 0);
+    focusRef.current?.focus();
   }, []);
+  const focusRef = useRef<InputRef>(null);
   const [value, setValue] = useState("");
   const { getMovieBySearch } = useSearch();
   const searchValue = useDebounce<string>(value, 1200);
@@ -18,6 +20,7 @@ const Search = () => {
       <div className="container">
         <div className="max-w-lg block mx-auto mt-4">
           <Input
+            ref={focusRef}
             type="text"
             className="h-12"
             value={value}

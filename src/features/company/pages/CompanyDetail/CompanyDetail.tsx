@@ -7,9 +7,14 @@ import CompanyDetailSkeleton from "../../components/CompanyDetailSkeleton/Compan
 const CompanyDetail = () => {
   scrollTo(0, 0);
   const { id } = useParams();
-  const { getCompanyById } = useCompanyAPI();
+  const { getCompanyById, getCompanyItem } = useCompanyAPI();
   const { data, isFetching } = getCompanyById(id);
+  const { data: imageData, isFetching: imageFetching } = getCompanyItem(
+    id,
+    "images"
+  );
   console.log(data);
+  console.log(imageData);
   return (
     <section className="mt-10">
       <title>Movie | Company</title>
@@ -18,7 +23,7 @@ const CompanyDetail = () => {
           <CompanyDetailSkeleton />
         ) : (
           <div>
-            <div className="flex flex-col md:flex-row gap-5">
+            <div className="min-h-[50vh] flex flex-col md:flex-row gap-5">
               <div className="w-full md:w-1/2 ">
                 {!data?.logo_path ? (
                   <div className="w-1/2 min-h-[400px] bg-neutral-700 animate-pulse"></div>
@@ -26,6 +31,8 @@ const CompanyDetail = () => {
                   <img
                     src={`${IMAGE_URL}${data?.logo_path}`}
                     alt={data?.name}
+                    width={500}
+                    className="block mx-auto"
                   />
                 )}
               </div>
@@ -39,6 +46,31 @@ const CompanyDetail = () => {
                 </p>
               </div>
             </div>
+            <section>
+              <h2 className='text-lg md:text-3xl font-semibold'>Company Images</h2>
+              <div className="mt-10 flex gap-5 overflow-x-auto">
+                {!imageData?.logos ? (
+                  <div className="min-h-[40vh] flexItemCenter">
+                    Image not found
+                  </div>
+                ) : (
+                  <>
+                    {imageData?.logos.map((item: any) => (
+                      <div
+                        className="bg-neutral-900 rounded-mainRadius p-5"
+                        key={item.id}
+                      >
+                        <img
+                          className="w-[400px]"
+                          src={`${IMAGE_URL}${item.file_path}`}
+                          alt={item.id}
+                        />
+                      </div>
+                    ))}
+                  </>
+                )}
+              </div>
+            </section>
           </div>
         )}
       </div>

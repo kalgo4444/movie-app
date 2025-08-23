@@ -10,5 +10,12 @@ export const useCompanyAPI = () => {
       select: (data) => data.data,
     });
 
-  return { getCompanyById };
+  const getCompanyItem = (id: string | undefined, path: string) =>
+    useQuery({
+      queryKey: ["company-key", id, path],
+      queryFn: () => API.get(`/company/${id}/${path}`),
+      select: (data) => data.data,
+    });
+
+  return { getCompanyById, getCompanyItem };
 };

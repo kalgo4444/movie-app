@@ -18,7 +18,7 @@ const DetailInfoLeft: FC<DetailInfoLeftProps> = ({ data }) => {
       </div>
       <div>
         <b>Average: </b>
-        <span>{data?.vote_average} IMDB Rating</span>
+        <span>{Number(data?.vote_average).toFixed(0)} IMDB Rating</span>
       </div>
       <div>
         <b>Vote Count: </b>

@@ -8,10 +8,14 @@ interface DetailInfoRightProps {
 const DetailInfoRight: FC<DetailInfoRightProps> = ({ data }) => {
   return (
     <div className="w-full md:w-1/2  flex flex-col gap-4">
-      <div>
-        <b>Budget: </b>
-        <span>{data?.budget}</span>
-      </div>
+      {data?.budget === 0 ? (
+        <></>
+      ) : (
+        <div>
+          <b>Budget: </b>
+          <span>{Number(data?.budget).toLocaleString('en-US')}$</span>
+        </div>
+      )}
       <div>
         <b>Country: </b>
         <span></span>

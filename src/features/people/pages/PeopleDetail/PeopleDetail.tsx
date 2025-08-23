@@ -21,6 +21,7 @@ const PeopleDetail = () => {
 
   return (
     <section className="mt-20">
+      <title>Movie | People</title>
       <div className="container">
         {peopleFetching ? (
           <ImgaeCoruselPeople />

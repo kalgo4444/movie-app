@@ -28,6 +28,7 @@ const MovieDetail = () => {
 
   return (
     <section>
+      <title>Movie | Detail</title>
       {isFetching ? (
         <MovieDetailSkeleton />
       ) : (

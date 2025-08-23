@@ -12,6 +12,7 @@ const CompanyDetail = () => {
   console.log(data);
   return (
     <section className="mt-10">
+      <title>Movie | Company</title>
       <div className="container">
         {isFetching ? (
           <CompanyDetailSkeleton />

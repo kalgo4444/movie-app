@@ -17,6 +17,7 @@ const Search = () => {
   const { data: searchData } = getMovieBySearch({ query: searchValue });
   return (
     <section>
+      <title>Movie | Search</title>
       <div className="container">
         <div className="max-w-lg block mx-auto mt-4">
           <Input

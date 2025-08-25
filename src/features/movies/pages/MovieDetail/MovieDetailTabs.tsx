@@ -7,7 +7,7 @@ const MovieDetailTabs = () => {
       <ul className="w-full flex items-center gap-5 border-b border-neutral-700 h-13">
         <li>
           <NavLink
-            className={`tabs__active text-base md:text-lg text-white py-3 px-1.5 rounded-t-mainRadius hover:bg-neutral-900 duration-200 `}
+            className={`tabs__active text-base md:text-lg text-white dark:text-black py-3 px-1.5 rounded-t-mainRadius hover:bg-neutral-900 hover:dark:text-white duration-200 `}
             end={true}
             to={""}
           >
@@ -17,7 +17,7 @@ const MovieDetailTabs = () => {
         <li>
           <NavLink
             className={
-              "tabs__active text-base md:text-lg text-white py-3 px-1.5 rounded-t-mainRadius hover:bg-neutral-900 duration-200 "
+              "tabs__active text-base md:text-lg text-white dark:text-black py-3 px-1.5 rounded-t-mainRadius hover:bg-neutral-900 hover:dark:text-white duration-200 "
             }
             to={"crew"}
           >

@@ -13,11 +13,11 @@ const Header = () => {
   }, []);
   return (
     <header
-      className={`w-full sticky z-50 top-0 left-0 bg-black border-b border-neutral-800 duration-200 ${
+      className={`w-full sticky z-50 top-0 left-0 bg-black dark:bg-white border-b border-neutral-800 dark:border-0 duration-200 ${
         isScroll ? "h-16" : "h-20"
       }`}
     >
-      <nav className="container h-full flexCenterBetween">
+      <nav className="container h-full flexCenterBetween relative">
         <HeaderLogo />
         <HeaderLinks />
         <HeaderAction />

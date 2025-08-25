@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const NotFound = () => {
     const nav = useNavigate()
   return (
-    <div className="w-full h-screen bg-black flexItemCenter">
+    <div className="w-full h-screen bg-neutral-950 dark:bg-neutral-100 flexItemCenter">
       <div className="max-w-xl w-full min-h-[400px] rounded-mainRadius border-2 border-mainColor p-5 flex flex-col justify-between">
         <div>
           <img src={logo} alt="Logo" className='my-3' width={150} />

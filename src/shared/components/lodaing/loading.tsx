@@ -3,7 +3,7 @@ import logo from '../../assets/images/logo.svg'
 
 const Loading = () => {
   return (
-    <div className="w-full h-screen bg-black flexItemCenter">
+    <div className="w-full h-screen bg-black dark:bg-neutral-100 flexItemCenter">
       <img src={logo} alt="Logo" width={300} />
     </div>
   );

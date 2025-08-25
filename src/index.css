@@ -2,6 +2,7 @@
 @import "swiper/css";
 @import "swiper/css/navigation";
 @import "swiper/css/thumbs";
+@custom-variant dark (&:where(.dark, .dark *));
 
 * {
   scroll-behavior: smooth;
@@ -63,6 +64,7 @@
 .tabs__active.active {
   border-color: var(--color-mainColor);
   background-color: var(--color-neutral-900);
+  color: white;
 }
 
 .ant-select-selector {
@@ -79,7 +81,8 @@
   color: #fff !important;
 }
 
-.ant-select-item-option-selected .ant-select-item-option-content, .ant-select-arrow {
+.ant-select-item-option-selected .ant-select-item-option-content,
+.ant-select-arrow {
   color: #fff !important;
 }
 
@@ -108,7 +111,7 @@
 
 @layer base {
   body {
-    @apply bg-black text-mainText;
+    @apply bg-black dark:bg-neutral-100 text-mainText dark:text-neutral-950 duration-700;
   }
 }
 

@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className='mb-20 md:mb-10 mt-25'>
       <div className="container">
-        <div className="max-w-[1180px] bg-footerBg rounded-mainRadius mx-auto p-7.5">
+        <div className="max-w-[1180px] bg-footerBg dark:bg-white rounded-mainRadius mx-auto p-7.5">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-5">
             <FooterPoster />
             <FooterAboutLink />

@@ -17,7 +17,7 @@ const SwiperCart: FC<Props> = ({ data }) => {
     <div className="grid max-[380px]:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
       {data?.map((item: any) => (
         <div
-          className="rounded-mainRadius flex flex-col justify-between"
+          className="rounded-mainRadius flex flex-col justify-between bg-neutral-950 dark:bg-white"
           key={item.id}
         >
           <div className="overflow-hidden rounded-mainRadius cursor-pointer">
@@ -37,7 +37,7 @@ const SwiperCart: FC<Props> = ({ data }) => {
                     />
                     <div
                       onClick={() => dis(toggleItem(item))}
-                      className="absolute top-3 right-3 w-10 h-10 bg-neutral-900 rounded-mainRadius flexItemCenter"
+                      className="absolute top-3 right-3 w-10 h-10 bg-neutral-900 dark:bg-neutral-300 rounded-mainRadius flexItemCenter"
                     >
                       {obj?.some((movie: any) => movie.id == item.id) ? (
                         <Bookmark
